@@ -14,7 +14,9 @@ Build an automated AI agent that aggregates the latest cybersecurity news from s
 
 
 ## Tools
-[n8n](https://n8n.io/) — a powerful workflow automation tool.<br>I chose n8n for its ability to be easily deployed and used locally.
+[n8n](https://n8n.io/) — a powerful workflow automation tool.
+I chose n8n for its ability to be easily deployed and used locally.
+
 [Docker](https://www.docker.com/) — incredible tool for building, sharing and running applications. Best tool I know for such tasks.
 
 
