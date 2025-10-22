@@ -1,7 +1,23 @@
 services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama 
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    runtime: nvidia
+  
   n8n:
     image: docker.n8n.io/n8nio/n8n
-    container_name: cybernews
+    container_name: n8n
     ports:
       - "5678:5678"
     environment:
@@ -9,7 +25,11 @@ services:
       - TZ=Europe/Warsaw
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
       - N8N_RUNNERS_ENABLED=true
+      - OLLAMA_API_URL=http://ollama:11434
+    depends_on:
+      - ollama
     volumes:
       - n8n_data:/home/node/.n8n
 volumes:
   n8n_data:
+  ollama_data:

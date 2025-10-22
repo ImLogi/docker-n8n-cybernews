@@ -24,11 +24,11 @@ I chose n8n for its ability to be easily deployed and used locally.
 
 
 ## Features
-*This project usee ONLY free and open-source tools, promoting privacy, independence and cost-free accessibility for enthusiast who value the open-source philosophy*
->Note: The intended use case for this project is individual or educational purposes.
+**This project uses ONLY free and open-source tools, promoting privacy, independence and cost-free accessibility for enthusiast who value the open-source philosophy**
+>Note: The intended use case for this project is individual or educational purposes. For any other type of usee, you may want to review the license terms and applicable policies.
 
 
-This project provides a ready-to-use Docker Compose configuration for running n8n locally. You can use my provided configuration (set to the Europe/Warsaw timezone), modify it to match your own timezone or create your own setup following the [official n8n Docker installation guide](https://docs.n8n.io/hosting/installation/docker/).
+This project provides a ready-to-use Docker Compose configuration for running n8n and Ollama locally. You can use my provided configuration (set to the Europe/Warsaw timezone, uses Nvidia GPU), modify it to match your own needs or create your own setup following the [n8n Docker installation guide](https://docs.n8n.io/hosting/installation/docker/) and [Ollama Docker installation guide](https://docs.ollama.com/docker).
 
 
 ## Prerequisites
@@ -37,3 +37,77 @@ This project provides a ready-to-use Docker Compose configuration for running n8
 
 
 ## Installation
+
+
+### 1. Ensure Docker and Docker Compose are installed
+
+``` BASH
+docker -v
+docker compose version
+```
+
+
+### 2. Clone repo
+
+``` BASH
+git clone https://github.com/ImLogi/docker-n8n-cybernews.git
+cd docker-n8n-cybernews
+```
+
+
+### 3. Run Docker Compose
+
+``` BASH
+docker compose up -d
+```
+
+
+### 4. Ensure containers was successfully deployed
+
+``` BASH
+docker ps -a
+```
+
+You should see containers with names: n8n, ollama.
+
+### 4.1 (Optional) Check connetion
+
+Ollama API is available at:
+
+```
+http://localhost:5678
+```
+
+>Note: If you go to Ollama API addres, the only thing you will see is *Ollama is running* 
+
+n8n interface is available at:
+
+```
+http://localhost:5678
+```
+
+
+### 5. Chose your model
+
+To download certain model to ollama use:
+
+``` BASH
+docker exec -it ollama ollama pull [model_name]
+```
+
+For full list check [Ollama Library](https://ollama.com/library)
+
+Or you can use any of this:
+ 
+| Model | Parameters | Size | [model_name] | Comment |
+|:--|:--:|:--:|:--:|--:|
+|Moondream 2|1.4B|829MB|`moondream`|smallest model, good for tests|
+|Gemma 3|12B|8.1GB|`gemma3:12b`|small model, a little bit smarter|
+|Llama 3.2 Vision|11B|7.9GB|`llama3.2-vision`| alternative to Gemma 3|
+|Llama 4|109B|67GB|`llama4:scout`| solid model, yet demanding|
+|DeepSeek-R1|671B|404GB|`deepseek-r1:671b`|good luck|
+
+>Note: You should have at least 8 GB of RAM available to run the 7B models, 16 GB to run the 13B models, and 32 GB to run the 33B models.
+
+
+### 6. ...
