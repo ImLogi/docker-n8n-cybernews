@@ -75,7 +75,7 @@ You should see containers with names: n8n, ollama.
 Ollama API is available at:
 
 ```
-http://localhost:5678
+http://localhost:11434
 ```
 
 >Note: If you go to Ollama API addres, the only thing you will see is *Ollama is running* 
@@ -101,7 +101,7 @@ Or you can use any of this:
  
 | Model | Parameters | Size | [model_name] | Comment |
 |:--|:--:|:--:|:--:|--:|
-|Moondream 2|1.4B|829MB|`moondream`|smallest model, good for tests|
+|Moondream 2|1.4B|829MB|`moondream`|smallest model, only for connection tests|
 |Gemma 3|12B|8.1GB|`gemma3:12b`|small model, a little bit smarter|
 |Llama 3.2 Vision|11B|7.9GB|`llama3.2-vision`| alternative to Gemma 3|
 |Llama 4|109B|67GB|`llama4:scout`| solid model, yet demanding|
