@@ -75,4 +75,4 @@ http://localhost:5678
 ```
 
 
-### 5. ...
+### 5. Use local hosted AI or wait for trusted AI to share API (i'm waiting for Lumo by Proton)
