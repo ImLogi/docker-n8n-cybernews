@@ -64,17 +64,9 @@ docker compose up -d
 docker ps -a
 ```
 
-You should see containers with names: n8n, ollama.
+You should see container with name n8n.
 
 ### 4.1 (Optional) Check connetion
-
-Ollama API is available at:
-
-```
-http://localhost:11434
-```
-
->Note: If you go to Ollama API addres, the only thing you will see is *Ollama is running* 
 
 n8n interface is available at:
 
@@ -83,27 +75,4 @@ http://localhost:5678
 ```
 
 
-### 5. Chose your model
-
-To download certain model to ollama use:
-
-``` BASH
-docker exec -it ollama ollama pull [model_name]
-```
-
-For full list check [Ollama Library](https://ollama.com/library)
-
-Or you can use any of this:
- 
-| Model | Parameters | Size | [model_name] | Comment |
-|:--|:--:|:--:|:--:|--:|
-|Moondream 2|1.4B|829MB|`moondream`|smallest model, only for connection tests|
-|Gemma 3|12B|8.1GB|`gemma3:12b`|small model, a little bit smarter|
-|Llama 3.2 Vision|11B|7.9GB|`llama3.2-vision`| alternative to Gemma 3|
-|Llama 4|109B|67GB|`llama4:scout`| solid model, yet demanding|
-|DeepSeek-R1|671B|404GB|`deepseek-r1:671b`|good luck|
-
->Note: You should have at least 8 GB of RAM available to run the 7B models, 16 GB to run the 13B models, and 32 GB to run the 33B models.
-
-
-### 6. ...
+### 5. ...
